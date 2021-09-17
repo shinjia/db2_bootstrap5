@@ -32,47 +32,42 @@ if($sth->execute())
       $data = <<< HEREDOC
       <form action="edit_save.php" method="post">
 
-        <div class="form-group row">
-          <label for="usercode" class="col-2">代碼</label>
-          <div class="col-10">
-            <input type="text" class="form-control" name="usercode" id="usercode" placeholder="" value="{$usercode}">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="username" class="col-2">姓名</label>
-          <div class="col-10">
-            <input type="text" class="form-control" name="username" id="username" placeholder="" value="{$username}">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="address" class="col-2">地址</label>
-          <div class="col-10">
-            <input type="text" class="form-control" name="address" id="address" placeholder="" value="{$address}">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="birthday" class="col-2">生日</label>
-          <div class="col-10">
-            <input type="text" class="form-control" name="birthday" id="birthday" placeholder="yyy-mm-dd" value="{$birthday}">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="height" class="col-2">身高</label>
-          <div class="col-3">
-            <input type="text" class="form-control" name="height" id="height" placeholder="" value="{$height}">
-          </div>
-          <label for="weight" class="col-2 offset-2">體重</label>    
-          <div class="col-3">
-            <input type="text" class="form-control" name="weight" id="weight" placeholder="" value="{$weight}">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="remark" class="col-2">備註</label>
-          <div class="col-10">
-            <input type="text" class="form-control" name="remark" id="remark" placeholder="" value="{$remark}">
-          </div>
-        </div>
+		  <div class="mb-3">
+			<label for="usercode" class="form-label">代碼</label>
+			<input type="text" class="form-control" id="usercode" name="usercode" value="{$usercode}">
+		  </div>
+		  
+		  <div class="mb-3">
+			<label for="username" class="form-label">姓名</label>
+			<input type="text" class="form-control" id="username" name="username" value="{$username}">
+		  </div>
+		  
+		  <div class="mb-3">
+			<label for="address" class="form-label">地址</label>
+			<input type="text" class="form-control" id="address" name="address" value="{$address}">
+		  </div>
+		  
+		  <div class="mb-3">
+			<label for="birthday" class="form-label">生日</label>
+			<input type="text" class="form-control" id="birthday" name="birthday" placeholder="yyy-mm-dd" value="{$birthday}">
+		  </div>
+		  
+		  <div class="mb-3">
+			<label for="height" class="form-label">身高</label>
+			<input type="text" class="form-control" id="height" name="height" value="{$height}">
+		  </div>
+		  
+		  <div class="mb-3">
+			<label for="weight" class="form-label">體重</label>
+			<input type="text" class="form-control" id="weight" name="weight" value="{$weight}">
+		  </div>
 
+		  <div class="mb-3">
+			<label for="remark" class="form-label">備註</label>
+			<input type="text" class="form-control" id="remark" name="remark" value="{$remark}">
+		  </div>
+
+  
         <div class="row">
           <input type="hidden" name="uid" value="{$uid}">
           <input type="submit" value="送出" class="btn btn-success">
