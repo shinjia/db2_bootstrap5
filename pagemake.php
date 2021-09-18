@@ -60,9 +60,10 @@ function pagemake($content='', $head='')
 
 
 <div class="container">
+
    <div class="row">
      <div class="col">
-       <div class="alert alert-primary">後台資料庫管理</div>
+       <div class="alert alert-primary mt-4">後台資料庫管理</div>
      </div>
    </div>
     
@@ -72,12 +73,13 @@ function pagemake($content='', $head='')
      </div>
    </div>
 
-    <footer class="footer">
-      <div class="container">
-        <span class="text-muted">版權聲明xxx</span>
-      </div>
-    </footer>
 </div>
+
+<footer class="footer mt-auto py-3 bg-dark">
+    <div class="container">
+      <span class="text-muted">版權沒有，歡迎拷貝</span>
+    </div>
+</footer>
 
 </body>
 </html>  

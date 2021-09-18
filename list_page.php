@@ -77,7 +77,7 @@ for($i=$page+1; $i<=$total_page; $i++)
 
 // 處理各頁之超連結：下拉式跳頁選單
 $lnk_pagegoto  = '<form method="GET" action="" style="margin:0;">';
-$lnk_pagegoto .= '<select name="page" onChange="submit();">';
+$lnk_pagegoto .= '<select class="form-select" aria-label="Default select example" name="page" onChange="submit();">';
 for($i=1; $i<=$total_page; $i++)
 {
    $is_current = (($i-$page)==0) ? ' SELECTED' : '';
@@ -85,6 +85,7 @@ for($i=1; $i<=$total_page; $i++)
 }
 $lnk_pagegoto .= '</select>';
 $lnk_pagegoto .= '</form>';
+
 
 // 將各種超連結組合成HTML顯示畫面
 $ihc_navigator  = <<< HEREDOC
