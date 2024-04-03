@@ -11,8 +11,7 @@ $sqlstr = "SELECT * FROM person ";
 $sth = $pdo->prepare($sqlstr);
 
 // 執行SQL及處理結果
-if($sth->execute())
-{
+if($sth->execute()) {
    // 成功執行 query 指令
    $total_rec = $sth->rowCount();
    $data = '';
@@ -64,8 +63,7 @@ HEREDOC;
    </table>
 HEREDOC;
 }
-else
-{
+else {
    // 無法執行 query 指令時
    $html = error_message('list_all');
 }

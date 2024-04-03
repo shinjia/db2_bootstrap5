@@ -2,7 +2,7 @@
 include 'config.php';
 include 'utility.php';
 
-$uid = isset($_GET['uid']) ? $_GET['uid'] : 0;
+$uid = $_GET['uid'] ?? 0;
 
 // 連接資料庫
 $pdo = db_open();
@@ -14,11 +14,9 @@ $sth = $pdo->prepare($sqlstr);
 $sth->bindValue(1, $uid, PDO::PARAM_INT);
 
 // 執行SQL及處理結果
-if($sth->execute())
-{
+if($sth->execute()) {
    // 成功執行 query 指令
-   if($row = $sth->fetch(PDO::FETCH_ASSOC))
-   {
+   if($row = $sth->fetch(PDO::FETCH_ASSOC)) {
       $uid = $row['uid'];
       $usercode = convert_to_html($row['usercode']);
       $username = convert_to_html($row['username']);
@@ -40,13 +38,11 @@ if($sth->execute())
        </table>
 HEREDOC;
    }
-   else
-   {
+   else {
  	   $data = '查不到相關記錄！';
    }
 }
-else
-{
+else {
    // 無法執行 query 指令時
    $data = error_message('display');
 }

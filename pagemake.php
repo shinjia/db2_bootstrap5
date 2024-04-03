@@ -1,7 +1,6 @@
 <?php
 
-function pagemake($content='', $head='')
-{  
+function pagemake($content='', $head='') {  
   $html = <<< HEREDOC
 <!DOCTYPE html>
 <html>

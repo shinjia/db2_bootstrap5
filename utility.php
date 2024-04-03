@@ -1,7 +1,6 @@
 <?php
 
-function error_message($type='', $ext='')
-{
+function error_message($type='', $ext='') {
    $a_msg = array(
      'add_save'    => '無法新增資料 (add_save)',
      'display'     => '無法列出資料 (display)',
@@ -16,8 +15,7 @@ function error_message($type='', $ext='')
 
    $msg = isset($a_msg[$type]) ? $a_msg[$type] : $a_msg['default'];
    
-   if($type=='page')
-   {
+   if($type=='page') {
       $msg = '檔案資料『" . $ext . "』不存在';
    }
    
@@ -28,8 +26,7 @@ function error_message($type='', $ext='')
 }
 
 
-function convert_to_html($sText)
-{
+function convert_to_html($sText) {
    /* 幾個和html轉換有關的函式
     * addslashes() 在特定的符號前加反斜線 (包括 ' " \ 及 NULL)
      (使用get_magic_quotes_gpc() 檢查，若為真，則不能再次使用 addslashes)

@@ -3,13 +3,13 @@ include 'config.php';
 include 'utility.php';
 
 // 接受外部表單傳入之變數
-$usercode = isset($_POST['usercode']) ? $_POST['usercode'] : '';
-$username = isset($_POST['username']) ? $_POST['username'] : '';
-$address  = isset($_POST['address'])  ? $_POST['address']  : '';
-$birthday = isset($_POST['birthday']) ? $_POST['birthday'] : '';
-$height   = isset($_POST['height'])   ? $_POST['height']   : 0;
-$weight   = isset($_POST['weight'])   ? $_POST['weight']   : 0;
-$remark   = isset($_POST['remark'])   ? $_POST['remark']   : '';
+$usercode = $_POST['usercode'] ?? '';
+$username = $_POST['username'] ?? '';
+$address  = $_POST['address']  ?? '';
+$birthday = $_POST['birthday'] ?? '';
+$height   = $_POST['height']   ?? 0;
+$weight   = $_POST['weight']   ?? 0;
+$remark   = $_POST['remark']   ?? '';
 
 // 連接資料庫
 $pdo = db_open();
@@ -41,14 +41,12 @@ $sth->bindValue(7, $remark  , PDO::PARAM_STR);
 */
 
 // 執行SQL及處理結果
-if($sth->execute())
-{
+if($sth->execute()) {
    $new_uid = $pdo->lastInsertId();    // 傳回剛才新增記錄的 auto_increment 的欄位值
    $url_display = 'display.php?uid=' . $new_uid;
    header('Location: ' . $url_display);
 }
-else
-{
+else {
    header('Location: error.php');
    echo print_r($pdo->errorInfo()) . '<br />' . $sqlstr; exit;  // 此列供開發時期偵錯用
 }

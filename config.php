@@ -18,8 +18,7 @@ define('ERROR_CHARSET',  'Set charset error');  // 無法設定指定的校對�
 define('DB_SOURCE', 'mysql:host='.DB_SERVERIP.';dbname='.DB_DATABASE);
 
 
-function db_open()
-{
+function db_open() {
    try {
       $pdo = new PDO(DB_SOURCE, DB_USERNAME, DB_PASSWORD);   
       if(defined('SET_CHARACTER')) $pdo->query(SET_CHARACTER);
@@ -30,7 +29,7 @@ function db_open()
    return $pdo;
 }
 
-function db_close()
-{
+function db_close() {
 }
+
 ?>

@@ -3,7 +3,7 @@
 include 'config.php';
 include 'utility.php';
 
-$page = isset($_GET['page']) ? $_GET['page'] : 1;   // 目前的頁碼
+$page = $_GET['page'] ?? 1;   // 目前的頁碼
 
 $numpp = 15;  // 每頁的筆數
 
@@ -19,8 +19,7 @@ $sqlstr .= " LIMIT " . $tmp_start . "," . $numpp;
 // 執行SQL及處理結果
 $data = '';
 $sth = $pdo->query($sqlstr);
-while($row = $sth->fetch(PDO::FETCH_ASSOC))
-{
+while($row = $sth->fetch(PDO::FETCH_ASSOC)) {
    $uid = $row['uid'];
    $usercode = convert_to_html($row['usercode']);
    $username = convert_to_html($row['username']);
@@ -54,8 +53,7 @@ HEREDOC;
 // 取得分頁所需之資訊 (總筆數、總頁數、擷取記錄之起始位置)
 $sqlstr = "SELECT count(*) as total_rec FROM person ";
 $sth = $pdo->query($sqlstr);
-if($row = $sth->fetch(PDO::FETCH_ASSOC))
-{
+if($row = $sth->fetch(PDO::FETCH_ASSOC)) {
    $total_rec = $row["total_rec"];
 }
 $total_page = ceil($total_rec / $numpp);  // 計算總頁數
@@ -78,8 +76,7 @@ for($i=$page+1; $i<=$total_page; $i++)
 // 處理各頁之超連結：下拉式跳頁選單
 $lnk_pagegoto  = '<form method="GET" action="" style="margin:0;">';
 $lnk_pagegoto .= '<select class="form-select" aria-label="Default select example" name="page" onChange="submit();">';
-for($i=1; $i<=$total_page; $i++)
-{
+for($i=1; $i<=$total_page; $i++) {
    $is_current = (($i-$page)==0) ? ' SELECTED' : '';
    $lnk_pagegoto .= '<option' . $is_current . '>' . $i . '</option>';
 }
@@ -89,7 +86,6 @@ $lnk_pagegoto .= '</form>';
 
 // 將各種超連結組合成HTML顯示畫面
 $ihc_navigator  = <<< HEREDOC
-
 
   <div class="row">
       <div class="col-6">
